@@ -45,9 +45,10 @@ header{
 }
 .menuTopo{
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     width: 200px;
+    text-align: end;
 }
 .menuTopo button{
     width: 100px;
