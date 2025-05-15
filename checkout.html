@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Bela Pizza</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .topo{
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 200ox;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            background-color: black;
+            height: 50px;
+            align-items: center;
+        }
+        .topo button{
+            width: 150px;
+            margin-right: 10px;
+            height: 30px;
+            border: none;
+            background-color: transparent;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .topo button:hover{
+            border-bottom: 1px solid white;
+        }
+        header{
+            margin-bottom: 30px;
+        }
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .finalize-pedido{
+            width: 100%;
+            max-width: 1200px;
+            padding: 10px;
+            margin: auto;
+        }
+        button:focus{
+            outline: none;
+        }
+        input:focus{
+            outline: none;
+        }
+        .corpo{
+            width: 100%;
+            max-width: 1200px;
+            padding: 10px;
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        input{
+            width: 100%;
+            margin-bottom: 5px;
+            padding: 10px;
+        }
+        .input-curto{
+            max-width: 210px;
+        }
+        .input-curto:last-child{
+            margin-right: 1;
+        }
+        .entrega button{
+            width: 100px;
+            padding: 8px;
+            background-color: black;
+            border: 1px solid black;
+            color: white;
+            transition: 0.3s;
+        }
+        .entrega button:hover{
+            transform: scale(1.05);
+            cursor: pointer;
+            background-color: transparent;
+            color: black;
+            border: 1px solid black;
+        }
+        .botaoPagar{
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .botaoPagar button{
+            width: 200px;
+            padding: 8px;
+            background-color: black;
+            color: white;
+            border: 1px solid black;
+            transition: 0.3s;
+        }
+        .botaoPagar button:hover{
+            transform: scale(1.05);
+            background-color: transparent;
+            color: black;
+            border: 1px solid black;cursor: pointer;
+        }
+        .pagamento-entrega{
+            max-width: 450px;
+            flex: 1;
+            margin-right: 30px;
+            min-width: 200px;
+            padding: 20px;
+            box-shadow: 0 0 1px;
+            background-color: white;
+        }
+        .resumo-carrinho{
+            width: 30%;
+            background-color: #f6f6f6;
+            padding: 20px;
+            box-shadow: 0 0 1px;
+        }
+        .linha-input{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            flex-wrap: wrap;
+        }
+        .resumo-carrinho .resumo table{
+            width: 100%;
+        }
+        .resumo-carrinho .resumo th{
+            width: 50%;
+            text-align: center;
+            color: white;
+            background-color: black;
+        }
+        #cancelar-pedido{
+            width: 100%;
+            padding: 8px;
+            background-color: white;
+            border: 1px solid black;
+            transition: 0.3s;
+        }
+        #cancelar-pedido:hover{
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px){
+            .corpo{
+                flex-direction: column;
+                align-items: stretch;
+            }
+                .botaoPagar{
+                    justify-content: center;
+            }
+            .input-curto{
+                width: 100%;
+                margin-right: 0;
+            }}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="topo">
+            <div class="botoesNav">
+                <a href="index.html"><button>Início</button></a>
+                <button>Quem Somos</button>
+                <button>Contato</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="corpo">
+            <div class="pagamento-entrega">
+                <div class="finalize-pedido">
+                    <h1>Finalize seu Pedido</h1>
+                </div>
+                <div class="entrega">
+                    <h4>Entrega</h4>
+                    <input type="text" placeholder="Endereço" disabled>
+                    <button>Editar</button>
+                </div>
+                <div class="pagamento">
+                    <h4>Dados do Pagamento</h4>
+                    <input type="text" placeholder="Número do cartão">
+                    <input type="text" placeholder="Nome do titular">
+                    <div class="linha-input">
+                        <input class="input-curto" type="text" placeholder="Mês">
+                        <input class="input-curto" type="text" placeholder="Ano">
+                        <input class="input-curto" type="text" placeholder="CVV">
+                    </div>
+                </div>
+                <div class="botaoPagar">
+                    <button>Realizar Pedido</button>
+                </div>
+
+            </div>
+            <div class="resumo-carrinho">
+                <div class="resumo">
+                    <h4>Resumo do Pedido</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Preço</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <tbody id="cart-resumo"></tbody>
+                    <input type="text" placeholder="Sub-total" disabled>
+                    <input type="text" placeholder="Entrega" disabled>
+                    <input type="text" placeholder="Desconto" disabled>
+                    <input type="text" placeholder="Total" disabled>
+                    <hr>
+                    <button id="cancelar-pedido">Cancelar Pedido</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

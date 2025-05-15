@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bela Pizza</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="script/script.js" async></script>
+</head>
+<body>
+    <div id="overlay"></div>
+    <header id="cabeçalho">
+        <div class="logoTopo">
+            <img src="img/logopng.png" width="200">
+        </div>
+        <nav id="botoesNav">
+            <a href="index.html"><button>Início</button></a>
+            <a href="quemSomos.html"><button>Quem Somos</button></a>
+            <a href="contato.html"><button>Contato</button></a>
+        </nav>
+        <div class="menu-toggle" onclick="menuToggle()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="menuTopo">
+            <button id="botaoLogin">Login <i class="fa-solid fa-right-to-bracket"></i></button>
+        </div>
+    </header>
+    <dialog id="modalLogin">
+        <div class="login">
+            <div class="logoLogin">
+                <h1>Login</h1>
+            </div>
+            <div class="form">
+                <form action="">
+
+                    <div class="user">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="E-mail ou número de telefone" id="email-login">
+                    </div>
+                    <div class="user">
+                        <i class="fa-solid fa-key"></i>
+                        <input type="password" placeholder="Senha" id="senha-login">
+                    </div>
+                    <p>Esqueceu a senha?<a href="redefinir.html"> Redefina aqui</a></p>
+                    <button id="entrar-login">Entrar</button>
+                </form>
+                <br>
+                <br>
+                <button><img src="img/Google.png" width="20">Continuar com Google</button>
+                <button><img src="img/Apple.png" width="20">Continuar com Apple</button>
+                <hr>
+                <div class="jaConta">
+                    <p>Não possui conta? <a href="cadastro.html">Crie uma aqui</a></p>
+                </div>
+            </div>
+        </div>
+    </dialog>
+    <div class="banner">
+        <h3>Tradição, Qualidade e Sabor</h3>
+        <p>Todas as nossas pizzas são feitas com bastante carinho e tradicionalidade</p>
+    </div>
+    <section class="corpo">
+        <div class="contato">
+            <h1><strong>Contato</strong></h1>
+            <strong>E-mail</strong><p>belapizza@contato.com</p>
+            <strong>Telefone</strong><p>(11) 99999-9999</p>
+            <strong>Endereço</strong><p>Rua Teste dos testes, 99 - Vila dos Testes - Teste</p>
+            <h4>Atendimento todos os dias das 18h ás 00h</h4>
+        </div>
+        <div class="redes">
+            <h1><strong>Entre em Contato Através de Nossas Redes Sociais</strong></h1>
+            <p>Clique no ícone para ser redirecionado ao nosso perfil</p>
+            <h2>instagram</h2>
+            <div class="redes-sociais-contato">
+                <a href=""><img src="img/instagram.png" width="50" alt=""></a>
+                <p>Siga nosso perfil e fique por dentro de todas as novidades, alem de participarem de promoções toda semana.</p>
+            </div>
+            <h2>WhatsApp</h2>
+            <div class="redes-sociais-contato">
+                <a href=""><img src="img/whatsapp.png" width="50" alt=""></a>
+                <p>Entre em contato conosco pelo WhatsApp para realizar o seu pedidp os tirar as suas dúvidas</p>
+            </div>
+            <h2>Facebook</h2>
+            <div class="redes-sociais-contato">
+                <a href=""><img src="img/facebook.png" width="50" alt=""></a>
+                <p>Entre em nossa página, avalie nosso atendimento, dê sugestões e venha interagir conosto </p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="logo-rodape">
+            <img src="img/logopizza.png" alt="" width="200">
+        </div>
+        <div class="contato-rodape">
+            <div class="redes-sociais">
+                <h4>Siga nossas redes sociais</h4>
+                <img src="../img/instagram.png" width="50" alt="">
+                <img src="img/facebook.png" width="50" alt="">
+                <img src="img/whatsapp.png" width="50" alt="">
+            </div>
+            <div class="contato-rodape1">
+                <h4>Contato</h4>
+                <p>Fale com a Gente</p>
+                <p>Trabalhe Conosco</p>
+            </div>
+            <div class="sobre-rodape">
+                <h4>Sobre nós</h4>
+                <p>Conheça nossa Hístoria</p>
+                <p>Política de Privacidade</p>
+            </div>
+        </div>
+        <div class="desenvolvido-rodape">
+            <p>Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+</body>
+</html>

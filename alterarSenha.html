@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Alterar Senha - Bela Pizza</title>
+</head>
+<body>
+    <main>
+        <div class="conteiner-redefinir">
+            <div class="redefinir">
+                <h1>Alterar Senha</h1>
+                <p>Escolha sua nova senha</p>
+                <div class="form-redefinir">
+                    <form action="">
+                        <input type="password" name="" id="senha" placeholder="Digite sua senha">
+                        <input type="password" name="" id="confirmar-senha" placeholder="Confirme sua senha">
+                        <br>
+                        <p id="erro"></p>
+                        <button id="alterar-senha">Alterar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+    const botaoAlterarSenha = document.querySelector("#alterar-senha");
+    const erro = document.querySelector("#erro");
+
+    botaoAlterarSenha.addEventListener("click", async function(e) {
+        e.preventDefault();
+
+        const senha = document.querySelector("#senha").value.trim();
+        const confirmarSenha = document.querySelector("#confirmar-senha").value.trim();
+
+        if (!senha || !confirmarSenha) {
+            erro.textContent = "Por favor, insira sua nova senha";
+            erro.style.color = "red";
+            return;
+        }
+
+        if (senha.length < 6) {
+            erro.textContent = "Sua senha deve conter mais de 6 dígitos";
+            erro.style.color = "red";
+            return;
+        }
+
+        if (senha !== confirmarSenha) {
+            erro.textContent = "As senhas não coincidem";
+            erro.style.color = "red";
+            return;
+        }
+
+        try {
+            const response = await fetch("https://localhost:7054/api/Autenticacao/AlterarSenha", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    novaSenha: senha,
+                    confirmarSenha: confirmarSenha,
+                    email: "usuário@exemplo.com" 
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error("Erro ao alterar senha");
+            }
+
+            erro.style.color = "green";
+            erro.textContent = "Senha alterada com sucesso!";
+        } catch (err) {
+            console.error(err);
+            erro.style.color = "red";
+            erro.textContent = "Erro ao alterar senha. Tente novamente.";
+        }
+    });
+</script>
+</body>
+</html>

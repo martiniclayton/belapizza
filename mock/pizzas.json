@@ -1,0 +1,114 @@
+[
+    {
+      "id": 1,
+      "nome": "Frango",
+      "tipo": "salgada",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 72.99,
+      "imagem": "img/pizzaFrango.png"
+    },
+    {
+      "id": 2,
+      "nome": "Calabresa",
+      "tipo": "salgada",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 79.99,
+      "imagem": "img/pizzaCalabresa.png"
+    },
+    {
+      "id": 3,
+      "nome": "Portuguesa",
+      "tipo": "salgada",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 69.99,
+      "imagem": "img/pizza.png"
+    },
+    {
+      "id": 4,
+      "nome": "Peito de Peru",
+      "tipo": "salgada",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 72.99,
+      "imagem": "img/pizza.png"
+    },
+    {
+      "id": 5,
+      "nome": "Marguerita",
+      "tipo": "salgada",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 79.99,
+      "imagem": "img/pizza.png"
+    },
+    {
+      "id": 6,
+      "nome": "Presunto",
+      "tipo": "salgada",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 69.99,
+      "imagem": "img/pizza.png"
+    },
+    {
+      "id": 7,
+      "nome": "Bacon",
+      "tipo": "salgada",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 79.99,
+      "imagem": "img/pizza.png"
+    },
+    {
+      "id": 8,
+      "nome": "Pepperoni",
+      "tipo":"salgada",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 89.99,
+      "imagem": "img/pizzaPepperoni.png"
+    },
+    {
+      "id": 9,
+      "nome": "Lombo",
+      "tipo":"salgada",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 65.99,
+      "imagem": "img/pizza.png"
+    },
+    {
+      "id": 10,
+      "nome": "Chocolate",
+      "tipo":"doce",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 59.99,
+      "imagem": "img/pizzaChocolateMorango.png"
+    },
+    {
+      "id": 11,
+      "nome": "Nutella",
+      "tipo":"doce",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 69.99,
+      "imagem": "img/pizzaChocolateMorango.png"
+    },
+    {
+      "id": 12,
+      "nome": "Morango",
+      "tipo":"doce",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 69.99,
+      "imagem": "img/pizzaBaunilha.png"
+    },
+    {
+      "id": 13,
+      "nome": "Baunilha",
+      "tipo":"doce",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 69.99,
+      "imagem": "img/pizzaBaunilha.png"
+    },
+    {
+      "id": 14,
+      "nome": "Chocolate com Morango",
+      "tipo":"doce",
+      "descricao": "Essa é uma bela pizza feita com tais ingredientes, acompanhada de tais ingredientes",
+      "preco": 79.99,
+      "imagem": "img/pizzaChocolateMorango.png"
+    }
+  ]

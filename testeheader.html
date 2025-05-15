@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+        }
+        header{
+            padding: 10px;
+            background-color: black;
+            color: white;
+            height: 50px;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+        .menu-togglee{
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .menu-togglee span{
+            width: 25px;
+            height: 3px;
+            background: white;
+        }
+        @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #444;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 20px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-togglee {
+        display: flex;
+      }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            LOGO.PNG
+        </div>
+        <nav id="nav">
+            <button>teste</button>
+            <button>teste</button>
+            <button>teste</button>
+        </nav>
+        <div class="menu-togglee" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <script>
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

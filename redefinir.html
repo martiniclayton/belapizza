@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinir Senha - Bela Pizza</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <div class="conteiner-redefinir">
+            <div class="redefinir">
+                <h1>Redefinir Senha</h1>
+                <p>Insira seu e-mail para receber o link de redefinição de senha</p>
+                <div class="form-redefinir">
+                    <form action="">
+                        <input type="text" name="" id="email-redefinir" placeholder="E-mail">
+                        <br>
+                        <label for="" id="erro"></label>
+                        <button id="botao-redefinir">Enviar</button>
+                    </form>
+                </div>
+                <hr>
+                <div class="login-cadastro">
+                    <p>Realize seu login <a href="index.html">aqui</a></p>
+                    <p>ou</p>
+                    <p>Faça já o seu cadastro <a href="cadastro.html">aqui</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+       const botaoRedefinir = document.querySelector("#botao-redefinir");
+    const labelErroRedefinir = document.querySelector("#erro");
+
+    botaoRedefinir.addEventListener("click", async function(e) {
+        e.preventDefault();
+
+        const emailRedefinir = document.querySelector("#email-redefinir").value.trim();
+        const padraoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (emailRedefinir === "") {
+            labelErroRedefinir.textContent = "Por favor, insira seu e-mail para continuar";
+            labelErroRedefinir.style.color = "red";
+            return;
+        }
+
+        if (!padraoEmail.test(emailRedefinir)) {
+            labelErroRedefinir.textContent = "Insira um e-mail válido";
+            labelErroRedefinir.style.color = "red";
+            return;
+        }
+
+        try {
+            const response = await fetch("https://localhost:7054/api/Autenticacao/SolicitarAlteracaoSenha", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email: emailRedefinir })
+            });
+
+            if (!response.ok) {
+                throw new Error("Erro ao enviar e-mail de recuperação");
+            }
+
+            labelErroRedefinir.style.color = "green";
+            labelErroRedefinir.textContent = "Link de recuperação enviado para seu e-mail!";
+        } catch (error) {
+            console.error("Erro:", error);
+            labelErroRedefinir.style.color = "red";
+            labelErroRedefinir.textContent = "Erro ao enviar link. Verifique o e-mail e tente novamente.";
+        }
+    });
+    </script>
+</body>
+</html>

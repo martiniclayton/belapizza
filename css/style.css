@@ -1,0 +1,842 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100vh;
+    background-color: #fefefe;
+}
+*{
+  box-sizing: border-box;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background-color: black;
+    width: 100%;
+    height: 50px;
+}
+.logoTopo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+#botoesNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#botoesNav button{
+    width: 150px;
+    margin-right: 10px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#botoesNav button:hover{
+    border-bottom: 1px solid white;
+}
+.menuTopo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+.menuTopo button{
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.menuTopo button:focus{
+  outline: none;
+}
+.menuTopo i {
+    font-size: 20px;
+    color: white;
+    margin-right: 15px;
+  }
+  dialog{
+    border: none;
+    box-shadow: 0 0 10px rgb(0,0,0, 0.3);
+    border-radius: 5px;
+    z-index: 20;
+  }
+  #overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    display: none;
+  }
+
+  .login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .logoLogin{
+    width: 100%;
+    text-align: start;
+  }
+  .form{
+    display: flex;
+    flex-direction: column;
+  }
+  .user{
+    width: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #666;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  .form input{
+    width: 200px;
+    padding: 10px;
+    border: none;
+  }
+  input:focus{
+    outline: none;
+  }
+  
+  .form button{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+    background-color: black;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+  }
+  .form button:hover{
+    background-color: gray;
+    border: 1px solid black;
+  }
+  .jaConta{
+    width: 100%;
+    text-align: center;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+  p{
+    font-size: 13px;
+    margin-top: 0;
+  }
+  hr{
+    width: 80%;
+  }
+  .fa-solid, .fa-shopping-cart{
+    cursor: pointer;
+  }
+
+  .modalCarrinho{
+    background-color: rgb(0,0,0, 0.5);
+    padding: 20px;
+  }
+  .carrinho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .listaCarrinho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .produtoCarrinho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .totais{
+    margin-top: 28px;
+    width: 100%;
+    text-align: right;
+    font-weight: bold;
+  }
+
+  th, td{
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .bCarrinho button{
+    width: 150px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    height: 30px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .bCarrinho button:hover{
+    background-color: black;
+    color: white;
+  }
+
+  .banner{
+    background-color: black;
+    text-align: center;
+    background-image: url(../img/bannerBannerBanner.png);
+    height: 300px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-position: center;
+    font-size: 50px;
+    width: 100%;
+    background-size: cover;
+    animation: zoomBanner 3s ease-in-out infinite alternate;
+    background-repeat: no-repeat;
+  }
+  .menu-toggle{
+    width: 30px;
+    color: white;
+    height: 25px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .menu-toggle span{
+    height: 4px;
+    color: white;
+    display: block;
+    flex-direction: column;
+    background: white;
+    margin: 2px;
+  }
+  
+  @keyframes zoomBanner{
+    0% {
+      background-size: 100%;
+    }
+    100% {
+      background-size: 110%;
+    }
+    
+  }
+  .banner h3{
+    font-size: 50px;
+  }
+  .titulo-pizza{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .corpo{
+    max-width: 1200px;
+    padding: 10px;
+    margin: auto;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .conteiner-pizzas{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 30px;
+    grid-row-gap: 30px;
+    width: 70%;
+  }
+  .pizzas{
+    max-width: 300px;
+    padding: 40px;
+    box-shadow: 0 0 3px;
+    border-radius: 5px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.3s;
+    gap: 10px;
+  }
+  .pizzas:hover{
+    box-shadow: 0 0 10px #666;
+    transform: scale(1.05);
+  }
+  .botao-adcpizza{
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .botao-adcpizza:hover{
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+  }
+  
+  .valor-pizza{
+    font-size: 25px;
+  }
+  
+  .carrinho{
+    width: 30%;
+    box-shadow: 0 0 5px;
+    margin-top: 30px;
+    margin-bottom: auto;
+    overflow: hidden;
+    position: sticky !important;
+    top: 0;
+    transition: 0.3s;
+  }
+  .header-carrinho{
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+    
+  }
+  .detalhes-pizza{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .corpo-carrinho{
+    width: 100%;
+  }
+  .corpo-carrinho button{
+    width: 100%;
+    padding: 5px;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  
+  .corpo-carrinho button:hover{
+    background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+table{
+  width: 100%;
+}
+th{
+  text-align: center;
+  width: 100px;
+}
+
+.valorpizza{
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.finalizar-pedido{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.finalizar-pedido button{
+  background-color: black;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.3s;
+}
+.finalizar-pedido button:hover{
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+.eliminar-carrinho{
+  position: absolute;
+  right: 20px;
+}
+
+.fa-solid .fa-lock{
+  position: absolute;
+  right: 30px;
+}
+
+@media screen and (max-width:850px){
+  .corpo {
+    display: block;
+  }
+  .conteiner-pizzas{
+    width: 100% !important;
+   }
+   .carrinho{
+     width: 100% !important;
+    }
+  }
+  footer{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    width: 100%;
+  }
+  .logo-rodape{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid white;
+    min-width: 600px;
+    padding: 5px;
+  }
+  .contato-rodape{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 50px;
+    margin: 10px;
+  }
+  .contato-rodape h4{
+    margin: 0;
+  }
+  .contato-rodape p{
+    margin-top: 5px;
+    font-size: 12px;
+    color: #a3a3a3;
+  }
+  .redes-sociais{
+    text-align: center;
+  }
+  .desenvolvido-rodape{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #a3a3a3;
+    font-size: 12px;
+  }
+  .contato-rodape .redes-sociais img{
+    background-color: white;
+            border-radius: 80px;
+            border: 1px solid black;
+          }
+          .pizzas-tab{
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+          }
+          
+          .pizzas-tab button{
+            border: 0;
+            background-color: transparent;
+            font-weight: bold;
+            cursor: pointer;
+          }
+          
+          .pizzas-tab button.active{
+            border-bottom: 1px solid black;
+          }
+          
+          .customizador {
+            padding: 24px 12px;
+          }
+          
+          .customizador .two-columns {
+            display: flex;
+            flex-direction: row;
+            gap: 62px;
+          }
+          
+          .customizador .two-columns .preview {
+            border: 1px solid #666;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            max-width: 200px;
+          }
+          
+          .logoCustomizador {
+            width: 100%;
+            text-align: end;
+          }
+          
+          .customizador .two-columns .form {
+            width: 100%;
+            min-width: 250px;
+            max-width: 500px;
+          }
+          
+          .customizador .two-columns .form label {
+            margin-top: 12px;
+            margin-bottom: 8px;
+            font-size: 14px
+          }
+          
+          .customizador .two-columns .form input,
+          .customizador .two-columns .form select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #666;
+            border-radius: 5px;
+          }
+          
+          .customizador .two-columns .form input:focus,
+          .customizador .two-columns .form select:focus {
+            outline: none;
+          }
+          
+          .customizador .two-columns .form input[type="checkbox"] {
+            width: 20px;
+            margin-left: 12px;
+          }
+          
+          .botao-adcpizza{
+            margin-top: 12px;
+            transition: 0.3s;
+          }
+          .botao-adcpizza:hover{
+            transform: scale(1.05);
+          }
+          
+          a:focus{
+            outline: none;
+          }
+          /*stylo para pagina de cadastro*/
+          .conteiner-cadastro{
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .conteiner-cadastro .cadastro{
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            flex-direction: column;
+          }
+          .conteiner-cadastro .continuar-cadastro{
+            padding: 20px;
+            border-left: 1px solid black;
+            width: 40%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+          }
+          .conteiner-cadastro .cadastro .form-cadastro{
+            min-width: 500px;
+          }
+          .conteiner-cadastro .cadastro .form-cadastro input{
+            padding: 10px;
+          }
+          .conteiner-cadastro .cadastro .form-nome-cpf, .form-email-telefone{
+            width: 100%;
+            display: flex;
+            gap: 5px;
+            margin-bottom: 5px;
+          }
+          .conteiner-cadastro .cadastro .form-cadastro .input-medio{
+            width: 60%;
+          }
+          .conteiner-cadastro .cadastro .form-cadastro .input-curto{
+            width: 40%;
+          }
+          .conteiner-cadastro .cadastro .form-cadastro .form-endereco, .input-endereco{
+            width: 100%;
+}
+.conteiner-cadastro .cadastro .form-cadastro .form-endereco2{
+  width: 100%;
+  margin-top: 5px;
+}
+.conteiner-cadastro .cadastro .form-cadastro .form-endereco2 .input-endereco2{
+  width: 38%;
+}
+.conteiner-cadastro .cadastro .form-cadastro .form-endereco2 .input-endereco3{
+  width: 22%;
+}
+.conteiner-cadastro .cadastro .form-cadastro .form-senha{
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.conteiner-cadastro .cadastro .form-cadastro .form-senha .input-senha{
+  width: 50%;
+}
+.conteiner-cadastro .cadastro .form-cadastro .botao-form{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.conteiner-cadastro .cadastro .form-cadastro .botao-form button{
+  width: 40%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.conteiner-cadastro .cadastro .form-cadastro .termos-check{
+  width: 50%;
+  display: flex;
+  align-items: baseline;
+  margin-top: 5px;
+}
+.conteiner-cadastro .cadastro .form-cadastro .termos-check #checkbox{
+  margin: 0;
+  margin-right: 5px;
+  cursor: pointer;
+}
+#termos{
+  cursor: pointer;
+}
+#termos-dialog{
+  width: 80%;
+}
+.termosModal{
+  border: none;
+}
+.termosModal button{
+  width: 20%;
+  height: 30px;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.termosModal button:hover{
+  background-color: white;
+  color: black;
+}
+.termosModal button:focus{
+  outline: none;
+}
+#span{
+  font-size: 12px;
+  width: 40%;
+  color: #666;
+}
+.conteiner-cadastro .cadastro .form-cadastro .botao-form button:hover{
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+.conteiner-cadastro .continuar-cadastro button{
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  margin-bottom: 5px;
+  padding: 8px;
+  background-color: black;
+  color: white;
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.conteiner-cadastro .continuar-cadastro button:hover{
+  transform: scale(1.05);
+  
+}
+.conteiner-cadastro .continuar-cadastro hr{
+  margin-top: 20px;
+}
+#jpc{
+  font-size: 15px;
+  color: #666;
+}
+#fla{
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+
+/*REDEFINIR*/
+.conteiner-redefinir{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #f6f6f6;
+}
+.conteiner-redefinir .redefinir{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 0 1px;
+  border-radius: 5px;
+  min-width: 400px;
+  padding: 30px;
+}
+.conteiner-redefinir .redefinir .form-cadastro{
+  min-width: 300px;
+}
+.conteiner-redefinir .redefinir .form-redefinir input{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.conteiner-redefinir .redefinir .form-redefinir button{
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+}
+.conteiner-redefinir .redefinir .form-redefinir button:hover{
+  background-color: white;
+  color: black;
+}
+.login-cadastro{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#erro{
+  color: red;
+  font-size: 12px;
+  width: 100%;
+}
+.quemsomos{
+  font-size: 20px;
+}
+.quemsomos p{
+  font-size: 15px;
+}
+.quemsomos-img{
+  text-align: center;
+}
+.redes{
+  border-left: 1px solid #666;
+  padding: 10px;
+}
+.redes a{
+  display: inline-block;
+}
+.redes p{
+  display: inline-block;
+}
+.redes-sociais-contato{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  #cabeçalho{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  .logoTopo{
+    display: none;
+  }
+  #botoesNav{
+    display: none;
+  }
+  nav{
+    display: none;
+  }
+  #botoesNav.show{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+    color: black;
+    position: absolute;
+    background-color: black;
+    box-shadow:  0 0 2px white;
+    top: 50px;
+    left: 0;
+  }
+  .menu-toggle{
+    display: flex;
+  }
+  .banner h3{
+    font-size: 30px;
+  }
+  .conteiner-cadastro{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: inline-block;
+    width: 100%;
+  }
+  .conteiner-cadastro .cadastro{
+    width: 100%;
+  }
+  .conteiner-cadastro .cadastro .input-endereco3{
+    width: 20%;
+  }
+  .conteiner-cadastro .continuar-cadastro{
+    width: 100%;
+  }
+}

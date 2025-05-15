@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "nome": "Bacon",
+        "tipo": "salgada",
+        "preco": 2.00,
+        "descricao": "Bacon adicional"
+    },
+    {
+        "id": 2,
+        "nome": "Queijo",
+        "tipo": "salgada",
+        "preco": 3.00,
+        "descricao": "Queijo adicional"
+    },
+    {
+        "id": 3,
+        "nome": "Ovo",
+        "tipo": "salgada",
+        "preco": 1.00,
+        "descricao": "Ovo adicional"
+    },
+    {
+        "id": 7,
+        "nome": "Picles",
+        "tipo": "salgada",
+        "preco": 1.00,
+        "descricao": "Picles adicional"
+    },
+    {
+        "id": 9,
+        "nome": "Milho",
+        "tipo": "salgada",
+        "preco": 1.00,
+        "descricao": "Milho adicional"
+    },
+    {
+        "id": 4,
+        "nome": "Coco ralado",
+        "tipo": "doce",
+        "preco": 1.00,
+        "descricao": "Coco ralado adicional"
+    },
+    {
+        "id": 5,
+        "nome": "Chocolate",
+        "tipo": "doce",
+        "preco": 5.00,
+        "descricao": "Chocolate adicional"
+    },
+    {
+        "id": 6,
+        "nome": "Leite condensado",
+        "tipo": "doce",
+        "preco": 2.00,
+        "descricao": "Leite condensado adicional"
+    }
+]

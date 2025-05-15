@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste header</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: black;
+            color: white;
+        }
+        .menu-toggle{
+            width: 30px;
+            height: 25px;
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .menu-toggle span{
+            width: 100%;
+            background: white;
+            height: 5px;
+        }
+        @media (max-width: 768px){
+            nav{
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 20px;
+            }
+            .menu-topo{
+                display: none;
+            }
+            .menu-toggle{
+                display: flex;
+            }
+            nav.show{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-topo">
+            LOGO.PNG
+        </div>
+        <nav id="nav">
+            <button>teste</button>
+            <button>teste</button>
+            <button>teste</button>
+        </nav>
+        <div class="menu-topo">
+            <button>teste</button>
+        </div>
+        <div class="menu-toggle" id="menu-toggle" onclick="menuToggle()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+<script>
+    function menuToggle(){
+        document.getElementById("nav").classList.toggle("show")
+    }
+    const menToggle = document.getElementById("menu-toggle")
+
+    window.addEventListener("click", (e)=>{
+        if(!menToggle.contains(e.target)){
+            document.getElementById("nav").classList.remove("show")
+        }
+    })
+</script>
+</body>
+</html>
