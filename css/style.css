@@ -439,7 +439,7 @@ th{
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid white;
-    min-width: 600px;
+    max-width: 600px;
     padding: 5px;
   }
   .contato-rodape{
