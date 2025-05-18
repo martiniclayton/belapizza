@@ -230,6 +230,7 @@ function templateCustomizador(pizzaId) {
                     <textarea id="observacoes" rows="4" cols="50" onchange="atualizaObservacao()" ></textarea>
 
                     <button class="botao-adcpizza" onclick="adicionarAoCarrinho()">Adicionar ao Carrinho</button>
+                    <a id="fechar-modal-pizza" onclick="fecharModalCustomizador()"><i class="fa-solid fa-circle-xmark"></i></a>
                 </div>
             </div>
     `
@@ -345,3 +346,6 @@ function menuToggle(){
     nav.classList.toggle("show")
 }
 
+function fecharModalCustomizador(){
+    modalPizzaCustomizador.close()
+}

@@ -790,6 +790,10 @@ th{
   align-items: center;
   gap: 10px;
 }
+#fechar-modal-pizza{
+  position: absolute;
+  cursor: pointer;
+}
 @media (max-width: 768px) {
   #cabeçalho{
     display: flex;
