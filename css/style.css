@@ -260,6 +260,7 @@ header{
     margin: auto;
     display: flex;
     flex-direction: column;
+    padding-left: 10px;
   }
   
   .corpo{
@@ -854,5 +855,8 @@ th{
   }
   .customizador .two-columns .preview{
     display: none;
+  }
+  .titulo-pizza{
+    padding: 0 10px;
   }
 }
