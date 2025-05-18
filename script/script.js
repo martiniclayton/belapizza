@@ -243,6 +243,8 @@ function adicionarAoCarrinho() {
     modalPizzaCustomizador.close();
     overlay.style.display = "none";
     atualizarCarrinho()
+    const carrinho = document.querySelector(".carrinho");
+    carrinho.scrollIntoView({ behavior: "smooth" });
 }
 
 function atualizarCarrinho() {

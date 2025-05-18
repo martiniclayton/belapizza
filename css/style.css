@@ -841,3 +841,14 @@ th{
     width: 100%;
   }
 }
+@media (max-width:600px) {
+  .customizador{
+    padding: 0;
+  }
+  .customizador .two-columns{
+    flex-direction: column;
+  }
+  .customizador .two-columns .preview{
+    display: none;
+  }
+}
