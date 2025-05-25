@@ -611,6 +611,9 @@ th{
 }
 .conteiner-cadastro .cadastro .form-cadastro .form-endereco2{
   width: 100%;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
   margin-top: 5px;
 }
 .conteiner-cadastro .cadastro .form-cadastro .form-endereco2 .input-endereco2{
@@ -862,5 +865,21 @@ th{
   }
   .titulo-pizza{
     padding: 0 10px;
+  }
+}
+@media (max-width:540px) {
+  .form-cadastro{
+    flex-direction: column;
+    background-color: aqua;
+    display: contents;
+  }
+  .form-nome-cpf{
+    display: inline-block;
+  }
+}
+@media (max-width:497px) {
+  .form-endereco2{
+    display: flex;
+    gap: 5px;
   }
 }
