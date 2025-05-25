@@ -1,3 +1,7 @@
+if (localStorage.getItem("usuarioLogado") && localStorage.getItem("voltarParaCheckout")) {
+  localStorage.removeItem("voltarParaCheckout");
+}
+
 console.log("Script de login carregado!");
 
 let pizzas = [];
@@ -348,4 +352,74 @@ function menuToggle(){
 
 function fecharModalCustomizador(){
     modalPizzaCustomizador.close()
+}
+
+function atualizarCarrinhoStorage(){
+    const carrinho = []
+    const linhas = document.querySelectorAll("#cart tr");
+
+    linhas.forEach(linha =>{
+        const item = linha.children[0].textContent;
+        const preco = linha.children[1].textContent;
+        carrinho.push({item, preco});
+    });
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+}
+
+document.getElementById("entrar-login").addEventListener("click", function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById("email-login").value;
+  const senha = document.getElementById("senha-login").value;
+
+  if (email && senha) {
+    localStorage.setItem("usuarioLogado", email);
+
+    const voltar = localStorage.getItem("voltarParaCheckout");
+    if (voltar === "true") {
+      localStorage.removeItem("voltarParaCheckout");
+      window.location.href = "checkout.html";
+    } else {
+      alert("Login realizado com sucesso!");
+      location.reload();
+    }
+  } else {
+    alert("Preencha os campos!");
+  }
+});
+
+document.getElementById("btn-finalizar").addEventListener("click", () => {
+  const usuario = localStorage.getItem("usuarioLogado");
+
+  if (!usuario) {
+    localStorage.setItem("voltarParaCheckout", "true");
+    document.getElementById("modalLogin").showModal(); // se não logado, mostra login
+    return;
+  }
+
+  atualizarCarrinhoStorage();
+  window.location.href = "checkout.html"; 
+});
+
+const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+const corpoResumo = document.getElementById("cart-resumo");
+carrinho.forEach(item => {
+  const tr = document.createElement("tr");
+
+  const tdItem = document.createElement("td");
+  tdItem.textContent = item.item;
+
+  const tdPreco = document.createElement("td");
+  tdPreco.textContent = item.preco;
+
+  tr.appendChild(tdItem);
+  tr.appendChild(tdPreco);
+  corpoResumo.appendChild(tr);
+});
+
+const usuario = localStorage.getItem("usuarioLogado");
+if (usuario) {
+  document.body.insertAdjacentHTML("afterbegin", `<p>Logado como: ${usuario}</p>`);
 }

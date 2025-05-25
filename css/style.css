@@ -252,6 +252,10 @@ header{
     }
     
   }
+
+  button:focus{
+    outline: none;
+  }
   .banner h3{
     font-size: 50px;
   }

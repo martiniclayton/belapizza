@@ -163,6 +163,16 @@
             cursor: pointer;
             transform: scale(1.05);
         }
+        button:focus{
+            outline: none;
+        }
+
+        TD{
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        .inp{
+        }
         @media (max-width: 768px){
             .corpo{
                 flex-direction: column;
@@ -223,17 +233,61 @@
                                 <th>Preço</th>
                             </tr>
                         </thead>
+                        <tbody id="cart-resumo"></tbody>
                     </table>
-                    <tbody id="cart-resumo"></tbody>
-                    <input type="text" placeholder="Sub-total" disabled>
-                    <input type="text" placeholder="Entrega" disabled>
-                    <input type="text" placeholder="Desconto" disabled>
-                    <input type="text" placeholder="Total" disabled>
+                    <input class="inp" type="text" placeholder="Sub-total" disabled>
+                    <input class="inp" type="text" placeholder="Entrega" disabled>
+                    <input class="inp" type="text" placeholder="Desconto" disabled>
+                    <input class="inp" type="text" placeholder="Total" disabled>
                     <hr>
                     <button id="cancelar-pedido">Cancelar Pedido</button>
                 </div>
             </div>
         </div>
     </main>
+<script>
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+const corpoResumo = document.getElementById("cart-resumo");
+
+carrinho.forEach(item => {
+  const tr = document.createElement("tr");
+
+  const tdItem = document.createElement("td");
+  tdItem.textContent = item.item;
+
+  const tdPreco = document.createElement("td");
+  tdPreco.textContent = item.preco;
+
+  tr.appendChild(tdItem);
+  tr.appendChild(tdPreco);
+  corpoResumo.appendChild(tr);
+});
+let subtotal = 0;
+
+carrinho.forEach(item => {
+  const preco = parseFloat(item.preco.replace("R$", "").replace(",", "."));
+  subtotal += preco;
+});
+
+const entrega = 5.00;
+const desconto = 0;
+const total = subtotal + entrega - desconto;
+
+const inputs = document.querySelectorAll(".resumo input");
+
+inputs[0].value = `SUBTOTAL: R$ ${subtotal.toFixed(2).replace(".", ",")}`;
+inputs[1].value = `ENTREGA: R$ ${entrega.toFixed(2).replace(".", ",")}`;
+inputs[2].value = `DESCONTO: R$ ${desconto.toFixed(2).replace(".", ",")}`;
+inputs[3].value = `TOTAL: R$ ${total.toFixed(2).replace(".", ",")}`;
+
+document.getElementById("cancelar-pedido").addEventListener("click", () => {
+  const confirmar = confirm("Tem certeza que deseja cancelar o pedido?");
+  if (confirmar) {
+    localStorage.removeItem("carrinho"); 
+    alert("Pedido cancelado com sucesso!");
+    window.location.href = "index.html"; 
+  }
+});
+</script>
 </body>
 </html>
