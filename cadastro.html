@@ -15,24 +15,24 @@
 
                     <div class="form-cadastro">
                         <div class="form-nome-cpf">
-                            <input type="text" name="" id="nome" placeholder="Nome" class="input-medio">
-                            <input type="text" name="" id="cpf" placeholder="CPF" class="input-curto">
+                            <input type="text" name="nome" id="nome" placeholder="Nome" class="input-medio">
+                            <input type="text" name="cpf" id="cpf" placeholder="CPF" class="input-curto">
                         </div>
                         <div class="form-email-telefone">
-                            <input type="text" name="" id="email" placeholder="E-mail" class="input-medio">
-                            <input type="text" name="" id="telefone" placeholder="Telefone" class="input-curto">
+                            <input type="text" name="email" id="email" placeholder="E-mail" class="input-medio">
+                            <input type="text" name="telefone" id="telefone" placeholder="Telefone" class="input-curto">
                         </div>
                         <div class="form-endereco">
-                            <input type="text" placeholder="Endereço" id="endereco" class="input-endereco">
+                            <input type="text" placeholder="Endereço" name="endereco" id="endereco" class="input-endereco">
                         </div>
                         <div class="form-endereco2">
-                            <input type="text" placeholder="Cidade" id="cidade" class="input-endereco2">
-                            <input type="text" placeholder="Estado" id="estado" class="input-endereco2">
-                            <input type="text" placeholder="CEP" id="cep" class="input-endereco3">
+                            <input type="text" placeholder="Cidade" name="cidade" id="cidade" class="input-endereco2">
+                            <input type="text" placeholder="Estado" name="estado" id="estado" class="input-endereco2">
+                            <input type="text" placeholder="CEP" name="cep" id="cep" class="input-endereco3">
                         </div>
                         <div class="form-senha">
-                            <input type="password" placeholder="Senha" id="senha" class="input-senha">
-                            <input type="password" placeholder="Confirmar Senha" id="confirmar-senha" class="input-senha">
+                            <input type="password" placeholder="Senha" name="senha" id="senha" class="input-senha">
+                            <input type="password" placeholder="Confirmar Senha" name="confirmarSenha" id="confirmar-senha" class="input-senha">
                         </div>
                         <div class="termos-check">
                             <input type="checkbox" name="" id="checkbox">
@@ -175,7 +175,7 @@
     })
     .then(data => {
         alert("Cadastro realizado com sucesso!");
-        window.location.href = "dados.html";
+        window.location.href = "index.html";
     })
     .catch(error => {
         console.error("Erro ao enviar dados:", error);
