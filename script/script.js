@@ -327,7 +327,7 @@ const checkLoginButton = setInterval(() => {
             };
 
             try {
-                const response = await fetch("https://pizzaria-api-45n7.onrender.com/api/Login/Entrar", {
+                const response = await fetch("https://pizzaria-api-45n7.onrender.com/api/Autenticacao/Login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -337,16 +337,19 @@ const checkLoginButton = setInterval(() => {
 
                 if (!response.ok) {
                     throw new Error("Falha no login");
+
                 }
 
                 const data = await response.json();
 
+                localStorage.setItem("clienteId", data.id);
+                localStorage.setItem("usuarioLogado", data.email);
+
                 alert("Login realizado com sucesso!");
-                window.location.href = "menu.html";
+                window.location.href = "index.html";
 
             } catch (error) {
                 console.error("Erro ao fazer login:", error);
-                alert("Erro ao fazer Login")
             }
         });
     }
