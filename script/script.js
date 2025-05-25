@@ -327,7 +327,7 @@ const checkLoginButton = setInterval(() => {
             };
 
             try {
-                const response = await fetch("https://localhost:7054/api/Login/Entrar", {
+                const response = await fetch("https://pizzaria-api-45n7.onrender.com/api/Login/Entrar", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -346,6 +346,7 @@ const checkLoginButton = setInterval(() => {
 
             } catch (error) {
                 console.error("Erro ao fazer login:", error);
+                alert("Erro ao fazer Login")
             }
         });
     }
@@ -373,37 +374,7 @@ function atualizarCarrinhoStorage(){
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
 }
 
-document.getElementById("entrar-login").addEventListener("click", function(e) {
-  e.preventDefault();
-
-  const email = document.getElementById("email-login").value;
-  const senha = document.getElementById("senha-login").value;
-
-  if (email && senha) {
-    localStorage.setItem("usuarioLogado", email);
-
-    const voltar = localStorage.getItem("voltarParaCheckout");
-    if (voltar === "true") {
-      localStorage.removeItem("voltarParaCheckout");
-      window.location.href = "checkout.html";
-    } else {
-      alert("Login realizado com sucesso!");
-      location.reload();
-    }
-  } else {
-    alert("Preencha os campos!");
-  }
-});
-
 document.getElementById("btn-finalizar").addEventListener("click", () => {
-  const usuario = localStorage.getItem("usuarioLogado");
-
-  if (!usuario) {
-    localStorage.setItem("voltarParaCheckout", "true");
-    document.getElementById("modalLogin").showModal(); // se não logado, mostra login
-    return;
-  }
-
   atualizarCarrinhoStorage();
   window.location.href = "checkout.html"; 
 });
@@ -424,8 +395,3 @@ carrinho.forEach(item => {
   tr.appendChild(tdPreco);
   corpoResumo.appendChild(tr);
 });
-
-const usuario = localStorage.getItem("usuarioLogado");
-if (usuario) {
-  document.body.insertAdjacentHTML("afterbegin", `<p>Logado como: ${usuario}</p>`);
-}
