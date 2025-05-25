@@ -47,6 +47,10 @@
         header{
             margin-bottom: 30px;
         }
+        nav{
+            display: flex;
+            justify-content: space-between;
+        }
         main{
             display: flex;
             justify-content: center;
@@ -121,16 +125,19 @@
             border: 1px solid black;cursor: pointer;
         }
         .pagamento-entrega{
+            display: inline-block;
             max-width: 450px;
             flex: 1;
             margin-right: 30px;
-            min-width: 200px;
+            min-width: 400px;
             padding: 20px;
             box-shadow: 0 0 1px;
             background-color: white;
         }
         .resumo-carrinho{
             width: 30%;
+            min-width: 300px;
+            display: inline-block;
             background-color: #f6f6f6;
             padding: 20px;
             box-shadow: 0 0 1px;
@@ -173,27 +180,88 @@
         }
         .inp{
         }
-        @media (max-width: 768px){
+        .menu-toggle{
+            width: 30px;
+            color: white;
+            height: 25px;
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        .menu-toggle span{
+            height: 4px;
+            color: white;
+            display: block;
+            flex-direction: column;
+            margin: 2px;
+            background: white;
+        }
+        @media (max-width: 750px){
+            body{
+                height: 1000px;
+            }
             .corpo{
-                flex-direction: column;
-                align-items: stretch;
+                display: flex;
+                align-items: center;
+                flex-direction: column-reverse;
             }
                 .botaoPagar{
                     justify-content: center;
+            }
+            .resumo-carrinho{
+                width: 100%;
+            }
+            .pagamento-entrega{
+                margin: 0;
+                width: 100%;
             }
             .input-curto{
                 width: 100%;
                 margin-right: 0;
             }}
+        @media (max-width:500px) {
+            .menu-toggle{
+                display: flex;
+            }
+            .topo{
+                justify-content: end;
+                padding: 0 10px;
+                text-align: end;
+            }
+            nav{
+                display: none;
+            }
+            nav.show{
+                position: absolute;
+                top: 50px;
+                left: 0;
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                color: white;
+                background-color: black;
+                box-shadow: 0 0 5px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="topo">
-            <div class="botoesNav">
+            <nav id="nav">
                 <a href="index.html"><button>Início</button></a>
-                <button>Quem Somos</button>
-                <button>Contato</button>
+                <a href="quemSomos.html">
+                    <button>Quem Somos</button>
+                </a>
+                <a href="contato.html">
+                    <button>Contato</button>
+                </a>
+            </nav>
+            <div class="menu-toggle" onclick="menuToggle()">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </header>
@@ -288,6 +356,10 @@ document.getElementById("cancelar-pedido").addEventListener("click", () => {
     window.location.href = "index.html"; 
   }
 });
+
+function menuToggle(){
+    document.getElementById("nav").classList.toggle("show")
+}
 </script>
 </body>
 </html>
