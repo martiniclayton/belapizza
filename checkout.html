@@ -279,7 +279,7 @@
                 </div>
                 <div class="entrega">
                     <h4>Entrega</h4>
-                    <input type="text" placeholder="Endereço" disabled>
+                    <input id="entrega-input" type="text" placeholder="Endereço" readonly>
                     <button>Editar</button>
                 </div>
                 <div class="pagamento">
@@ -320,6 +320,27 @@
         </div>
     </main>
 <script>
+    if (!localStorage.getItem("clienteId")) {
+        window.location.href = "index.html?modal=abrir";
+    }
+    (async () => {
+        const id = localStorage.getItem("clienteId");
+        console.log(id)
+        if (!id) return;
+
+        try {
+            const resposta = await fetch(`https://pizzaria-api-45n7.onrender.com/api/Cliente/endereco/${id}`);
+            console.log("aresposata", resposta)
+            if (!resposta.ok) throw new Error("Erro ao buscar endereço");
+
+            const dados = await resposta.json();
+
+            const campoEndereco = document.querySelector(".entrega-input");
+            campoEndereco.value = `${dados.endereco}, ${dados.cidade} - ${dados.estado}, CEP: ${dados.cep}`;
+        } catch (erro) {
+            console.error("Erro ao carregar endereço:", erro);
+        }
+        })();
     const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 const corpoResumo = document.getElementById("cart-resumo");
 

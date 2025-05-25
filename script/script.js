@@ -322,7 +322,7 @@ const checkLoginButton = setInterval(() => {
             btnEntrar.parentElement.appendChild(erro); 
 
             const loginData = {
-                email: email.value,
+                login: email.value,
                 senha: senha.value
             };
 
@@ -341,12 +341,11 @@ const checkLoginButton = setInterval(() => {
                 }
 
                 const data = await response.json();
-
-                localStorage.setItem("clienteId", data.id);
+                console.log("Resposta da API de login:", data);
+                localStorage.setItem("clienteId", data.idCliente);
                 localStorage.setItem("usuarioLogado", data.email);
 
                 alert("Login realizado com sucesso!");
-                window.location.href = "index.html";
 
             } catch (error) {
                 console.error("Erro ao fazer login:", error);
