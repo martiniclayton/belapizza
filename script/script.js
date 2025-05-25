@@ -95,6 +95,12 @@ window.addEventListener("click", (e) => {
     }
 })
 
+const fecharModalLogin = document.getElementById("fechar-modal-login")
+
+fecharModalLogin.onclick = function(){
+    modalLogin.close()
+}
+
 let cart = []
 let total = 0;
 
