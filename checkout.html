@@ -335,8 +335,9 @@
 
             const dados = await resposta.json();
 
-            const campoEndereco = document.querySelector(".entrega-input");
-            campoEndereco.value = `${dados.endereco}, ${dados.cidade} - ${dados.estado}, CEP: ${dados.cep}`;
+            const campoEndereco = document.querySelector("#entrega-input");
+            campoEndereco.value = `${dados.nmEndereco}, ${dados.cidade} - ${dados.estado}, CEP: ${dados.cep}`;
+            console.log(campoEndereco.value)
         } catch (erro) {
             console.error("Erro ao carregar endereço:", erro);
         }
