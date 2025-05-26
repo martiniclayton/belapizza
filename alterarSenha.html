@@ -52,6 +52,14 @@
             erro.style.color = "red";
             return;
         }
+        const parametros = new URLSearchParams(window.location.search);
+        const email = parametros.get("email");
+        if (email) {
+            localStorage.setItem("usuarioLogado", email);
+            console.log("Email salvo:", email);
+        } else {
+            console.warn("Nenhum e-mail encontrado na URL.");
+        }
         const emailUsuario = localStorage.getItem("usuarioLogado")
         console.log("E-mail", emailUsuario)
         
