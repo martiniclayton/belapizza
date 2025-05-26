@@ -55,7 +55,7 @@
         const emailUsuario = localStorage.getItem("usuarioLogado")
         console.log("E-mail", emailUsuario)
         try {
-            const response = await fetch('https://pizzaria-api-45n7.onrender.com/api/Autenticacao/alterarSenha/${emailUsuario}', {
+            const response = await fetch(`https://pizzaria-api-45n7.onrender.com/api/Autenticacao/alterarSenha/${emailUsuario}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -63,7 +63,7 @@
                 body: JSON.stringify({
                     novaSenha: senha,
                     confirmarSenha: confirmarSenha,
-                    email: "usuário@exemplo.com" 
+                    email: emailUsuario 
                 })
             });
             console.log(response)
