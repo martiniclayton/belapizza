@@ -434,6 +434,7 @@ document.getElementById("btn-finalizar").addEventListener("click", () => {
     localStorage.removeItem("clienteId")
     localStorage.removeItem("usuarioLogado")
     localStorage.removeItem("carrinho")
+    window.location.href = "index.html"
     atualizarBotoesLogin();
     
   }
