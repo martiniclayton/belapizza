@@ -70,6 +70,33 @@ header{
     color: white;
     margin-right: 15px;
   }
+.menuTopoSair{
+    display: none;
+    justify-content: end;
+    align-items: center;
+    width: 200px;
+    text-align: end;
+}
+.menuTopoSair button{
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.menuTopoSair button:focus{
+  outline: none;
+}
+.menuTopoSair i {
+    font-size: 20px;
+    color: white;
+    margin-right: 15px;
+  }
   dialog{
     border: none;
     box-shadow: 0 0 10px rgb(0,0,0, 0.3);
@@ -801,6 +828,12 @@ th{
 #fechar-modal-pizza{
   position: absolute;
   cursor: pointer;
+}
+.fechar{
+  display: none;
+}
+.abrir{
+  display: flex;
 }
 @media (max-width: 768px) {
   #cabeçalho{

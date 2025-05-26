@@ -320,9 +320,10 @@
         </div>
     </main>
 <script>
-    if (!localStorage.getItem("clienteId")) {
-        window.location.href = "index.html?modal=abrir";
+    if (localStorage.getItem("usuarioLogado") && localStorage.getItem("voltarParaCheckout")) {
+        localStorage.removeItem("voltarParaCheckout");
     }
+  
     (async () => {
         const id = localStorage.getItem("clienteId");
         console.log(id)

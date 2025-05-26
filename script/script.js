@@ -1,6 +1,5 @@
-if (localStorage.getItem("usuarioLogado") && localStorage.getItem("voltarParaCheckout")) {
-  localStorage.removeItem("voltarParaCheckout");
-}
+  atualizarBotoesLogin();
+
 
 console.log("Script de login carregado!");
 
@@ -305,6 +304,8 @@ window.addEventListener("DOMContentLoaded", ()=>{
         modalLogin.showModal();
         overlay.style.display = "block";
     }
+    console.log("DOM totalmente carregado")
+    atualizarBotoesLogin();
 })
 
 const checkLoginButton = setInterval(() => {
@@ -345,6 +346,12 @@ const checkLoginButton = setInterval(() => {
                 localStorage.setItem("clienteId", data.idCliente);
                 localStorage.setItem("usuarioLogado", data.email);
 
+                const user = localStorage.getItem("usuarioLogado");
+                console.log(user)
+                
+                atualizarBotoesLogin();
+                modalLogin.close();
+                overlay.style.display = "none";
                 alert("Login realizado com sucesso!");
 
             } catch (error) {
@@ -377,23 +384,62 @@ function atualizarCarrinhoStorage(){
 }
 
 document.getElementById("btn-finalizar").addEventListener("click", () => {
-  atualizarCarrinhoStorage();
-  window.location.href = "checkout.html"; 
+    if(!localStorage.getItem("clienteId")){
+        alert("Você precisa estar logado")
+        modalLogin.showModal();
+        overlay.style.display = "block";
+    }
+    else{
+        if (cart.length === 0) {
+            alert("Seu carrinho está vazio");
+        } else {
+            atualizarCarrinhoStorage();
+            window.location.href = "checkout.html";
+        }
+    }
+  });
+  
+  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  
+  const corpoResumo = document.getElementById("cart-resumo");
+  carrinho.forEach(item => {
+    const tr = document.createElement("tr");
+  
+    const tdItem = document.createElement("td");
+    tdItem.textContent = item.item;
+  
+    const tdPreco = document.createElement("td");
+    tdPreco.textContent = item.preco;
+  
+    tr.appendChild(tdItem);
+    tr.appendChild(tdPreco);
+    corpoResumo.appendChild(tr);
+  });
+
+  function atualizarBotoesLogin() {
+  const btnEntrar = document.querySelector(".menuTopo");
+  const btnSair = document.querySelector(".menuTopoSair");
+
+  if (localStorage.getItem("clienteId")) {
+    btnEntrar.classList.add("fechar");
+    btnSair.classList.add("abrir");
+  } else {
+    btnEntrar.classList.remove("fechar");
+    btnSair.classList.remove("abrir");
+  }
+}
+
+
+  function sairSessao(){
+    localStorage.removeItem("clienteId")
+    localStorage.removeItem("usuarioLogado")
+    localStorage.removeItem("carrinho")
+    atualizarBotoesLogin();
+    
+  }
+window.addEventListener("pageshow", () => {
+  atualizarBotoesLogin();
 });
-
-const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
-const corpoResumo = document.getElementById("cart-resumo");
-carrinho.forEach(item => {
-  const tr = document.createElement("tr");
-
-  const tdItem = document.createElement("td");
-  tdItem.textContent = item.item;
-
-  const tdPreco = document.createElement("td");
-  tdPreco.textContent = item.preco;
-
-  tr.appendChild(tdItem);
-  tr.appendChild(tdPreco);
-  corpoResumo.appendChild(tr);
-});
+/* if (!localStorage.getItem("clienteId")) {
+        window.location.href = "index.html?modal=abrir";
+    }*/
