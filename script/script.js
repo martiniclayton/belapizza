@@ -438,11 +438,23 @@ document.getElementById("btn-finalizar").addEventListener("click", () => {
 
 
   function sairSessao(){
-    localStorage.removeItem("clienteId")
-    localStorage.removeItem("usuarioLogado")
-    localStorage.removeItem("carrinho")
-    window.location.href = "index.html"
-    atualizarBotoesLogin();
+    const animacao = document.querySelector("#logout-animation");
+
+    animacao.classList.remove("fechar-animacao");
+    animacao.classList.add("show");
+
+    setTimeout(() => {
+        animacao.classList.remove("show");
+        animacao.classList.add("fechar-animacao");
+        localStorage.removeItem("clienteId")
+        localStorage.removeItem("usuarioLogado")
+        localStorage.removeItem("carrinho")
+        window.location.href = "index.html"
+        atualizarBotoesLogin();
+
+
+    }, 300);
+
     
   }
 window.addEventListener("pageshow", () => {

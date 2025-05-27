@@ -839,6 +839,29 @@ color: red;
 .abrir{
   display: flex;
 }
+#logout-animation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  text-align: center;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#logout-animation.show {
+  opacity: 1;
+}
+
+.fechar-animacao {
+  display: none;
+}
+
 @media (max-width: 768px) {
   #cabeçalho{
     display: flex;
