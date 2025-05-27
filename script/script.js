@@ -319,7 +319,7 @@ const checkLoginButton = setInterval(() => {
 
             const email = document.querySelector("#email-login");
             const senha = document.querySelector("#senha-login");
-            const erro = document.createElement("p");
+            const erro = document.querySelector("#p");
             btnEntrar.parentElement.appendChild(erro); 
 
             const loginData = {
@@ -352,10 +352,17 @@ const checkLoginButton = setInterval(() => {
                 atualizarBotoesLogin();
                 modalLogin.close();
                 overlay.style.display = "none";
+                erro.textContent = ""
                 alert("Login realizado com sucesso!");
 
             } catch (error) {
                 console.error("Erro ao fazer login:", error);
+                erro.style.color = 'red'
+                if(email.value ==="" || senha.value === ""){
+                    erro.textContent = "Insira os dados para login"
+                }else{
+                    erro.textContent = "E-mail ou senha incorretos"
+                }
             }
         });
     }

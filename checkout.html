@@ -284,16 +284,16 @@
                 </div>
                 <div class="pagamento">
                     <h4>Dados do Pagamento</h4>
-                    <input type="text" placeholder="Número do cartão">
-                    <input type="text" placeholder="Nome do titular">
+                    <input type="text" placeholder="5340 5720 4022 2867" disabled>
+                    <input type="text" placeholder="João Testes da Silva" disabled>
                     <div class="linha-input">
-                        <input class="input-curto" type="text" placeholder="Mês">
-                        <input class="input-curto" type="text" placeholder="Ano">
-                        <input class="input-curto" type="text" placeholder="CVV">
+                        <input class="input-curto" type="text" placeholder="02" disabled>
+                        <input class="input-curto" type="text" placeholder="2027" disabled>
+                        <input class="input-curto" type="text" placeholder="433" disabled>
                     </div>
                 </div>
                 <div class="botaoPagar">
-                    <button>Realizar Pedido</button>
+                    <button onclick="RealizarPedido()">Realizar Pedido</button>
                 </div>
 
             </div>
@@ -388,6 +388,10 @@ document.getElementById("cancelar-pedido").addEventListener("click", () => {
 
 function menuToggle(){
     document.getElementById("nav").classList.toggle("show")
+}
+function RealizarPedido(){
+    alert("Pedido realizado com sucesso")
+    window.location.href = "index.html"
 }
 </script>
 </body>
